@@ -33,7 +33,10 @@ for i in range(len(lines)):
         # Store in dictionary
         quiz[qn] = ans
 
+qns = list(quiz.keys())
+
 
 @app.get("/")
 def index():
-    return random.choice(qns)
+    qn = random.choice(qns)
+    return {"question": qn, "ans": quiz[qn]}
