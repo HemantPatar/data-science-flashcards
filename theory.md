@@ -292,7 +292,7 @@ Accuracy is a metric for evaluating classification models. It is calculated by d
 
 **Is accuracy always a good metric? 👶**
 
-Accuracy is not a good performance metric when there is imbalance in the dataset. For example, in binary classification with 95% of A class and 5% of B class, prediction accuracy can be 95%. In case of imbalance dataset, we need to choose Precision, recall, or F1 Score depending on the problem we are trying to solve.
+Accuracy is not a good performance metric when there is imbalance in the dataset. For example, in binary classification with 95% of A class and 5% of B class, a constant prediction of A class would have an accuracy of 95%. In case of imbalance dataset, we need to choose Precision, recall, or F1 Score depending on the problem we are trying to solve.
 
 <br/>
 
@@ -975,7 +975,18 @@ Augmentations really depend on the type of output classes and the features you w
 
 **What kind of CNN architectures for classification do you know? 🚀**
 
-Answer here
+Image Classification
+* Inception v3
+* Xception 
+* DenseNet
+* AlexNet
+* VGG16
+* ResNet
+* SqueezeNet
+* EfficientNet
+* MobileNet
+
+The last three are designed so they use smaller number of parameters which is helpful for edge AI. 
 
 <br/>
 
