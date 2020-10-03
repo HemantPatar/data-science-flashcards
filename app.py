@@ -1,8 +1,11 @@
 import random
 from fastapi import FastAPI
+from fastapi.responses import FileResponse
+from fastapi.staticfiles import StaticFiles
 
 
 app = FastAPI()
+app.mount("/public", StaticFiles(directory="public"), name="public")
 
 with open("theory.md", "r", encoding="utf-8") as f:
     lines = f.readlines()
@@ -38,5 +41,9 @@ qns = list(quiz.keys())
 
 @app.get("/")
 def index():
+    return FileResponse("public/index.html")
+
+@app.get("/quiz")
+def getquiz():
     qn = random.choice(qns)
-    return {"question": qn, "ans": quiz[qn]}
+    return {"question": qn, "answer": quiz[qn]}
