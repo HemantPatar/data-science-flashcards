@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Data Science</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.5.7/dist/css/uikit.min.css" />
+    <link rel="stylesheet" href="./public/style.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.5.7/dist/js/uikit.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.5.7/dist/js/uikit-icons.min.js"></script>
+</head>
+
+<body>
+    <div class="uk-padding-large" id="app">
+        <p class="uk-heading-small uk-text-center" style="color: #444; margin-top: 60px; margin-bottom: 60px;">
+            Data Science Interview Questions
+        </p>
+
+        <hr class="uk-divider-icon">
+        <div style="text-align:center;">
+            <p v-if="question" class="uk-text-header uk-text-center">{{ question }}</p>
+            <button v-on:click="show" class="uk-button uk-button-default" style="text-align:center;">Toggle
+                answer</button>
+            <button v-on:click="getQuiz" class="uk-button uk-button-default" style="text-align:center;">Next</button>
+        </div>
+        <hr class="uk-divider-icon">
+
+        <span v-if="showing" class="uk-text uk-text-center">{{ answer }}</span>
+        <div style="text-align:center;">
+            <div v-if="loading" uk-spinner></div><em>
+                <p v-if="loading" class="uk-text-muted uk-text-center">Short and sweet</p>
+            </em>
+            <br>
+            <button v-on:click="reset" class="uk-button uk-button-default" style="text-align:center;">Reset</button>
+            <button v-on:click="addZeroPoints" class="uk-button uk-button-default" style="text-align:center;">
+                I learnt something new!</button>
+            <button v-on:click="addOnePoint" class="uk-button uk-button-default" style="text-align:center;">
+                I knew it!</button>
+            <br>
+            <p>{{ correct }}/{{ total }}</p>
+        </div>
+
+        <br>
+        <p class="uk-text-small uk-text-muted uk-text-center">Forked from
+            https://github.com/alexeygrigorev/data-science-interviews</p>
+
+    </div>
+    <script src="./public/script.js"></script>
+</body>
+
+</html>
